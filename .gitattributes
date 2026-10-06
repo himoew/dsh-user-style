@@ -1,10 +1,13 @@
+# 文本文件默认策略：仓库内以 LF 存储，检出时用各平台默认。
+# 注意：这条必须写在最前面。gitattributes 是「后面的规则覆盖前面的」，
+# 如果它排在 *.png / *.ps1 之后，会把那些更具体的规则一并覆盖掉。
+* text=auto
+
 # Windows 脚本统一用 CRLF：cmd.exe 与旧版 PowerShell 对 LF-only 的批处理/脚本
-# 偶发解析问题，GitHub 上被转成 LF 再被 clone 下来最容易踩。
+# 偶发解析问题，被 GitHub 转成 LF 再 clone 下来最容易踩。
 *.bat text eol=crlf
 *.ps1 text eol=crlf
 
-# 二进制资源别做换行或编码转换（截图是 PDF/PNG 类资产，转换即损坏）
+# 二进制资源不做任何转换。PNG 内含 NUL 字节，text=auto 本来也会判定为二进制，
+# 这里显式声明是给读规则的人看的，也防止以后有人放宽上面的判定。
 *.png binary
-
-# 其余文本按仓库内 LF 存储，检出时用各平台默认
-* text=auto
