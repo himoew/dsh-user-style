@@ -1,0 +1,10 @@
+# Windows 脚本统一用 CRLF：cmd.exe 与旧版 PowerShell 对 LF-only 的批处理/脚本
+# 偶发解析问题，GitHub 上被转成 LF 再被 clone 下来最容易踩。
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# 二进制资源别做换行或编码转换（截图是 PDF/PNG 类资产，转换即损坏）
+*.png binary
+
+# 其余文本按仓库内 LF 存储，检出时用各平台默认
+* text=auto

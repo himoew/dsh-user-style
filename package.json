@@ -1,0 +1,56 @@
+{
+  "name": "dsh-user-style",
+  "version": "0.1.0",
+  "description": "让 AI 记住「你喜欢怎么被对待」：编辑用户工作风格，并在每次对话开始前注入系统提示词。",
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "persona",
+    "style",
+    "preference",
+    "plugin"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node tests/test-store.mjs && node tests/test-workspaces.mjs && node tests/test-host.mjs && node tests/test-client.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himoew/dsh-user-style.git"
+  },
+  "homepage": "https://github.com/himoew/dsh-user-style#readme",
+  "bugs": {
+    "url": "https://github.com/himoew/dsh-user-style/issues"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.0-rc.1 <0.2.1-0"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": []
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# 依赖与打包产物
+node_modules/
+
+# 本插件在运行时写到你 DSH 主目录里的东西（正常情况下不会出现在仓库里，
+# 但如果你为了调试把 DSH_HOME 指到仓库内，这几条能兜住）
+store.json
+trace.jsonl
+last-render.txt
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.log

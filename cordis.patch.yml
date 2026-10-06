@@ -1,0 +1,7 @@
+# dsh-user-style bundle patch：把插件挂进 profile 的层栈。
+#
+# 行 id 是用户在 profile 的 cordis.patch.yml 里覆盖时使用的键；行 name 是本包导出的模块名，
+# 因此必须保持为包名，两者刻意不同（与官方 bundle 的惯例一致）。
+- insert:
+    - id: user-style
+      name: 'dsh-user-style'
